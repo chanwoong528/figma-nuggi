@@ -14,17 +14,25 @@ import { getnBtnJson } from "./foundation/btn";
 figma.showUI(__html__);
 
 // This monitors the selection changes and posts the selection to the UI
+
+figma.ui.onmessage = async (event) => {
+  //message from the ui.html
+  // console.log("event>> ", event.type === "generate");
+  // if (event.type === "generate") {
+  //   const btnArr = await getnBtnJson();
+  // }
+};
+
+// figma.ui.postMessage(42); //send message to the ui.html
+
 figma.on("selectionchange", async () => {
   const btnArr = await getnBtnJson();
-
+  // const btnArr = await getnBtnJson();
   // const typoArr = await genTypoGraphy();
   // console.log("figma.codegen.on typo>> ", typoArr);
-
   // const result = await POST_generateCode(typoArr);
   // console.log(result);
-
-  figma.ui.postMessage(figma.currentPage.selection);
-  console.log(figma.currentPage.selection);
+  // console.log(figma.currentPage.selection);
 });
 
 async function POST_generateCode(figmaArr: any) {
