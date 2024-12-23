@@ -1,19 +1,25 @@
-<h2>Selection Change Observer</h2>
-<p>
-  Observe the contents of figma.selection change as you change the selection in
-  the file.
-</p>
-<p>ID of selection is:</p>
-<p id="selection"></p>
+<div role="main">
+  <h2>누끼 따기</h2>
+  <div class="button-container">
+    <button id="create" type="button">nuggi</button>
+    <button id="cancel" type="button">Cancel</button>
+  </div>
+</div>
 
-<button id="generate">generate</button>
+<style>
+.button-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+</style>
+
 <script>
-  document.getElementById("generate").addEventListener("click", () => {
-    parent.postMessage({ pluginMessage: { type: "generate" } }, "*"); // send message to the plugin code.ts
-  });
+  document.getElementById('create').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'nuggi' } }, '*')
+  }
 
-  // onmessage = (event) => {
-  //   //message from the plugin code.ts
-  //   console.log("got this from the plugin code", event.data.pluginMessage);
-  // };
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+  }
 </script>

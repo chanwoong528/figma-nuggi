@@ -1,16 +1,22 @@
 {
-  "name": "hk-design-system",
-  "id": "1447791630363887434",
+  "name": "hk-nuggi-plugin",
+  "id": "1452975632767954908",
   "api": "1.0.0",
   "main": "dist/code.js",
-  "capabilities": ["inspect"],
   "enableProposedApi": false,
   "documentAccess": "dynamic-page",
-  "editorType": ["dev"],
+  "editorType": [
+    "figma"
+  ],
   "ui": "ui.html",
   "networkAccess": {
-    "allowedDomains": ["http://localhost:3000"],
+    "allowedDomains": [
+      "http://localhost:8000",
+      "https://nuggi-server-production.up.railway.app"
+    ],
     "reasoning": "MyPlugin queries httpbin.org/get for example responses.",
-    "devAllowedDomains": ["http://localhost:3000"]
+    "devAllowedDomains": [
+      "http://localhost:8000"
+    ]
   }
 }
